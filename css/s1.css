@@ -1,0 +1,73 @@
+@font-face {
+    font-family: fonttitle;
+    src: url(/fonts/StanleyPersonalUse-BWnRd.ttf);
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#header{
+    width: 100%;
+    background-color: #682105;
+    height: 9rem;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#title{
+    font-family: 'fonttitle', cursive;
+    color: #4E6C50;
+    font-size: 5rem;
+    letter-spacing: rem;
+    margin-left: 2rem;
+    font-weight: 300;
+    text-shadow: #521a04 -4px 4px 2px;
+}
+
+#login{
+    margin-right: 4rem;
+}
+
+.material-symbols-outlined{
+    color: #4E6C50;
+    font-size: 3rem;
+    text-shadow: #521a04 -4px 4px 2px;
+    margin-right: 3rem;
+    position: relative;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.material-symbols-outlined::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #F2DEBA;
+    opacity: 0;
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
+}
+
+.material-symbols-outlined:hover::before {
+    opacity: 1;
+}
+
+.material-symbols-outlined:hover{
+    color: #4E6C50;
+    font-size: 3rem;
+    text-shadow: #dac7a5 -4px 4px 2px;
+    margin-right: 3rem;
+    position: relative;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.3s ease-in-out;
+}
