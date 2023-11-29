@@ -1,0 +1,173 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto Slab', serif;
+  background-color: #ECE0D8;
+  color: #634F42;
+}
+
+
+header {
+  width: 100%;
+  background-color: #6D4C41;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  justify-content: space-between;
+  height: 10vh;
+  padding: 0 2rem;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  color: #FFFFFF;
+  font-size: 3rem;
+  display: inline;
+}
+
+.material-symbols-outlined {
+  color: #FFFFFF;
+  font-size: 3rem !important;
+  position: relative;
+  cursor: pointer;
+  z-index: 100;
+  margin-right: 2rem;
+}
+
+main {
+  display: grid;
+  place-items: center;
+  height: 100vh; 
+}
+
+.catalogo {
+  width: 80%;
+  max-width: 1400px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+  border-radius: 5px;
+}
+
+.cabecera {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.titu {
+  margin: 0;
+  font-size: 24px;
+}
+
+.buslib {
+  display: flex;
+  align-items: center;
+}
+
+.buslib input {
+  padding: 5px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #CCC;
+}
+
+.buscarb {
+  padding: 5px 10px;
+  background-color: #634F42;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.librachoz {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.libro {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 10px;
+  background-color: #F6F6F6;
+  border-radius: 5px;
+}
+
+.libro img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.libro h3,
+.libro p {
+  margin: 15px 0;
+}
+
+
+.buscarb,
+.agrcar {
+  padding: 10px 20px;
+  background-color: #634F42;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+}
+
+.buscarb:active,
+.agrcar:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+
+footer {
+  background-color: #3E2723;
+  color: #F5D8C0;
+  padding: 20px 0;
+  display: grid;
+  justify-content: center;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.contacto {
+  margin-bottom: 20px;
+}
+
+.creditos {
+  text-align: right;
+}
+
+.creditos .autor {
+  font-weight: bold;
+}
+
+a{
+  text-decoration: none;
+}
+

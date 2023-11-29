@@ -1,0 +1,51 @@
+
+.login {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+    width: 800px;
+    padding: 2rem;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.titlereg {
+    font-size: 24px;
+    margin-bottom: 1rem;
+}
+
+.form {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 0.5rem;
+}
+
+.form label {
+    font-weight: bold;
+}
+
+.form input {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #CCC;
+    margin-bottom: 1rem;
+}
+
+.loginbot,
+.registerbot {
+    padding: 10px 20px;
+    background-color: #634F42;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.loginbot:active,
+.registerbot:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
