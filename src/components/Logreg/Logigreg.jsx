@@ -5,7 +5,6 @@ import Footer from '../footer/Footer';
 import Logreg from './Logreg';
 
 const Logigreg = ({ cart, setCart }) => {
-  // Implementa la lógica de LogReg
   return (
     <div>
       <Head />

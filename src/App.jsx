@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css'; // Importa tu archivo CSS global aquí
+import './App.css';
 import Home from './components/Home/home';
 import Logigreg from './components/Logreg/Logigreg';
 import Carrito from './components/Carrito/Carrito';
