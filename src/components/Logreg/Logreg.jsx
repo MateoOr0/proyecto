@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import '../Logreg/Logreg.css';
 
 const Logreg = () => {
@@ -8,75 +9,36 @@ const Logreg = () => {
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [passwordsMatch, setPasswordsMatch] = useState(true);
-  const [loginSuccess, setLoginSuccess] = useState(false);
-  const [registerSuccess, setRegisterSuccess] = useState(false);
-  const [emailFormatError, setEmailFormatError] = useState(false);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    // Lógica para manejar el inicio de sesión
-    console.log(`Iniciar sesión - Email: ${loginEmail}, Contraseña: ${loginPassword}`);
+    try {
+      const response = await axios.post('http://localhost:8080/api/login', {
+        email: loginEmail,
+        password: loginPassword,
+      });
 
-    // Limpiar campos y mostrar mensaje de éxito
-    setLoginEmail('');
-    setLoginPassword('');
-    setLoginSuccess(true);
-
-    // Limpiar el mensaje después de 3 segundos (3000 milisegundos)
-    setTimeout(() => {
-      setLoginSuccess(false);
-    }, 3000);
+      console.log('Respuesta del servidor (login):', response.data);
+    } catch (error) {
+      console.error('Error en el inicio de sesión:', error.response.data);
+    }
   };
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
 
-    // Verificación automática del formato de correo electrónico por el navegador
-    if (!validateEmail(registerEmail)) {
-      setEmailFormatError(true);
+    try {
+      const response = await axios.post('http://localhost:8080/api/register', {
+        username: registerUsername,
+        email: registerEmail,
+        password: registerPassword,
+      });
 
-      // Limpiar el mensaje de error después de 3 segundos (3000 milisegundos)
-      setTimeout(() => {
-        setEmailFormatError(false);
-      }, 3000);
-
-      return;
+      console.log('Respuesta del servidor (registro):', response.data);
+    } catch (error) {
+      console.error('Error en el registro:', error.response.data);
     }
-
-    // Verificación de contraseñas en el frontend
-    if (registerPassword !== confirmPassword) {
-      setPasswordsMatch(false);
-
-      // Limpiar el mensaje de error después de 3 segundos (3000 milisegundos)
-      setTimeout(() => {
-        setPasswordsMatch(true);
-      }, 3000);
-
-      return;
-    }
-
-    // Lógica para enviar la información al backend o manejar el registro
-    console.log(`Registro - Usuario: ${registerUsername}, Email: ${registerEmail}, Contraseña: ${registerPassword}`);
-
-    // Limpiar campos y mostrar mensaje de éxito
-    setRegisterUsername('');
-    setRegisterEmail('');
-    setRegisterPassword('');
-    setConfirmPassword('');
-    setRegisterSuccess(true);
-
-    // Limpiar el mensaje después de 3 segundos (3000 milisegundos)
-    setTimeout(() => {
-      setRegisterSuccess(false);
-    }, 3000);
-  };
-
-  const validateEmail = (email) => {
-    // Verificar el formato del correo electrónico
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
   };
 
   return (
@@ -107,7 +69,6 @@ const Logreg = () => {
           <button className="loginbot" onClick={handleLogin}>
             Iniciar sesión
           </button>
-          {loginSuccess && <p className="success-message">Inicio de sesión exitoso</p>}
         </div>
 
         <div className="registerform">
@@ -151,13 +112,10 @@ const Logreg = () => {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
-            {!passwordsMatch && <p className="error-message">Las contraseñas no coinciden.</p>}
           </div>
           <button className="registerbot" onClick={handleRegister}>
             Registrarse
           </button>
-          {emailFormatError && <p className="error-message">El formato del correo electrónico es incorrecto.</p>}
-          {registerSuccess && <p className="success-message">Registro exitoso</p>}
         </div>
       </div>
     </main>
